@@ -1,0 +1,156 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: 100%;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: darkblue;
+}
+
+#resume-image {
+  height: 50px;
+  width: auto;
+}
+
+#resume-container {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  border: 1px solid orange;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 70%;
+  max-width: 800px;
+  padding: 0px 20px 20px 20px;
+  border-radius: 10px;
+  /* gap: 10px; */
+}
+
+.personal-container,
+.experience-container,
+.education-container {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  gap: 10px;
+}
+
+.personal-information-title,
+.work-experience-title,
+.education-title {
+  color: darkblue;
+}
+
+.create-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+button {
+  padding: 4px 8px;
+  background: darkblue;
+  border: 1px solid darkblue;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: white;
+  color: darkblue;
+  border: 1px solid darkblue;
+}
+
+.resume-preview {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  width: 70%;
+  max-width: 800px;
+  padding: 0px 20px 20px 20px;
+  border-radius: 10px;
+}
+
+.resume-personal-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  border-bottom: 2px solid black;
+}
+
+.contact-info {
+  display: flex;
+  gap: 30px;
+  font-size: 17px;
+  padding-bottom: 10px;
+}
+
+.phone-container,
+.email-container,
+.location-container,
+.github-container {
+  display: flex;
+  gap: 10px;
+}
+
+.phone-image,
+.email-image,
+.location-image,
+.github-image {
+  height: 20px;
+}
+
+.work-experience-header,
+.education-header {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 10px;
+}
+
+.work-experience-image,
+.education-image {
+  height: 30px;
+}
+
+.job-history,
+.education-info {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.job,
+.job-tenure,
+.education-university,
+.education-tenure {
+  display: flex;
+  gap: 5px;
+}
+
+.resume-company,
+.resume-university {
+  font-weight: 700;
+}
+
+.job-info {
+  padding-bottom: 20px;
+}

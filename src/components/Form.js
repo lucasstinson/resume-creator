@@ -11,7 +11,7 @@ class Form extends Component {
     let education = [];
     for (
       let i = 0;
-      i < this.props.addExperience;
+      i < 1;
       i++ // eslint-disable-next-line no-lone-blocks
     ) {
       experiences.push(
@@ -20,25 +20,25 @@ class Form extends Component {
             type="text"
             id="company"
             placeholder="Company"
-            onChange={this.props.onChange}
+            onChange={this.props.onExperienceChange}
           />
           <input
             type="text"
             id="position"
             placeholder="Position"
-            onChange={this.props.onChange}
+            onChange={this.props.onExperienceChange}
           />
           <input
             type="text"
             id="job-start-date"
             placeholder="Start Date"
-            onChange={this.props.onChange}
+            onChange={this.props.onExperienceChange}
           />
           <input
             type="text"
             id="job-end-date"
             placeholder="End Date"
-            onChange={this.props.onChange}
+            onChange={this.props.onExperienceChange}
           />
           <textarea
             rows={4}
@@ -46,14 +46,14 @@ class Form extends Component {
             maxLength={300}
             id="description"
             placeholder="Description"
-            onChange={this.props.onChange}
+            onChange={this.props.onExperienceChange}
           />
         </div>
       );
     }
     for (
       let i = 0;
-      i < this.props.addEducation;
+      i < 1;
       i++ // eslint-disable-next-line no-lone-blocks
     ) {
       education.push(
@@ -62,25 +62,25 @@ class Form extends Component {
             type="text"
             id="university"
             placeholder="University"
-            onChange={this.props.onChange}
+            onChange={this.props.onEducationChange}
           />
           <input
             type="text"
             id="major"
             placeholder="Major"
-            onChange={this.props.onChange}
+            onChange={this.props.onEducationChange}
           />
           <input
             type="text"
             id="uni-start-date"
             placeholder="Start Date"
-            onChange={this.props.onChange}
+            onChange={this.props.onEducationChange}
           />
           <input
             type="text"
             id="uni-end-date"
             placeholder="End Date"
-            onChange={this.props.onChange}
+            onChange={this.props.onEducationChange}
           />
         </div>
       );
@@ -93,31 +93,31 @@ class Form extends Component {
             type="text"
             id="name"
             placeholder="Name"
-            onChange={this.props.onChange}
+            onChange={this.props.onPersonalChange}
           />
           <input
             type="tel"
             id="phone"
             placeholder="Phone Number"
-            onChange={this.props.onChange}
+            onChange={this.props.onPersonalChange}
           />
           <input
             type="text"
             id="email"
             placeholder="Email"
-            onChange={this.props.onChange}
+            onChange={this.props.onPersonalChange}
           />
           <input
             type="text"
             id="location"
             placeholder="Location"
-            onChange={this.props.onChange}
+            onChange={this.props.onPersonalChange}
           />
           <input
             type="text"
             id="github"
             placeholder="Github"
-            onChange={this.props.onChange}
+            onChange={this.props.onPersonalChange}
           />
         </div>
         <div className="experience-container">

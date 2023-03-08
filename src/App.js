@@ -82,6 +82,7 @@ class App extends Component {
     this.setState({
       jobs: allExperience,
     });
+    console.log(this.state);
   };
 
   handleEducationChange = (e) => {
@@ -127,12 +128,31 @@ class App extends Component {
 
   addExperience = (e) => {
     e.preventDefault();
-    this.setState({ experienceCount: this.state.experienceCount + 1 });
+    let job = {
+      company: "",
+      position: "",
+      positionStart: "",
+      positionEnd: "",
+      description: "",
+    };
+    this.setState({
+      jobs: this.state.jobs.concat(job),
+    });
+    console.log(this.state);
   };
 
   addEducation = (e) => {
     e.preventDefault();
-    this.setState({ educationCount: this.state.educationCount + 1 });
+    let school = {
+      university: "",
+      major: "",
+      universityStart: "",
+      UniversityEnd: "",
+    };
+    this.setState({
+      schools: this.state.schools.concat(school),
+    });
+    console.log(this.state);
   };
 
   render() {
@@ -141,8 +161,8 @@ class App extends Component {
         <Head />
         <div id="resume-container">
           <Form
-            addExperience={this.state.experienceCount}
-            addEducation={this.state.educationCount}
+            experienceCount={this.state.jobs.length}
+            educationCount={this.state.schools.length}
             // handleSubmit={this.onCreateResume}
             onPersonalChange={this.handlePersonalChange}
             onExperienceChange={this.handleExperienceChange}

@@ -11,7 +11,7 @@ class Form extends Component {
     let education = [];
     for (
       let i = 0;
-      i < 1;
+      i < this.props.experienceCount;
       i++ // eslint-disable-next-line no-lone-blocks
     ) {
       experiences.push(
@@ -53,7 +53,7 @@ class Form extends Component {
     }
     for (
       let i = 0;
-      i < 1;
+      i < this.props.educationCount;
       i++ // eslint-disable-next-line no-lone-blocks
     ) {
       education.push(

@@ -26,7 +26,6 @@
   display: flex;
   justify-content: center;
   gap: 100px;
-  border: 1px solid orange;
 }
 
 form {
@@ -53,6 +52,12 @@ form {
 .work-experience-title,
 .education-title {
   color: darkblue;
+}
+
+.job-description {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .create-container {
@@ -123,6 +128,13 @@ button:hover {
   display: flex;
   align-items: center;
   /* justify-content: center; */
+  gap: 10px;
+}
+
+.work-experience,
+.education-experience {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 

@@ -10,19 +10,20 @@ class Resume extends Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <div className="resume-preview">
         <div className="resume-personal-info">
-          <h2 className="resume-name">John Doe</h2>
+          <h2 className="resume-name">{this.props.name}</h2>
           <div className="contact-info">
             <div className="phone-container" src={phone}>
               <img className="phone-image" src={phone} alt="phone"></img>
-              <div className="resume-phone">123-456-7890</div>
+              <div className="resume-phone">{this.props.phone}</div>
             </div>
             <div className="email-container">
               <img className="email-image" src={email} alt="email"></img>
-              <div className="resume-email">JohnDoe@gmail.com</div>
+              <div className="resume-email">{this.props.email}</div>
             </div>
             <div className="location-container">
               <img
@@ -30,11 +31,11 @@ class Resume extends Component {
                 src={location}
                 alt="location"
               ></img>
-              <div className="resume-location">Generic, NY</div>
+              <div className="resume-location">{this.props.location}</div>
             </div>
             <div className="github-container">
               <img className="github-image" src={github} alt="github"></img>
-              <div className="resume-github">github.com/generic-github</div>
+              <div className="resume-github">{this.props.github}</div>
             </div>
           </div>
         </div>
@@ -50,22 +51,19 @@ class Resume extends Component {
           <div className="job-info">
             <div className="job-history">
               <div className="job">
-                <div className="resume-company">Fake Company,</div>
-                <div className="resume-position">Fake Position</div>
+                <div className="resume-company">{this.props.company}</div>
+                <div className="resume-position">{this.props.position}</div>
               </div>
               <div className="job-tenure">
-                <div className="resume-work-start-date">01/01/2020 |</div>
-                <div className="resume-work-end-date">Current</div>
+                <div className="resume-work-start-date">
+                  {this.props.positionStart}
+                </div>
+                <div className="resume-work-end-date">
+                  {this.props.positionEnd}
+                </div>
               </div>
             </div>
-            <div className="job-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur.
-            </div>
+            <div className="job-description">{this.props.description}</div>
           </div>
         </div>
         <div className="resume-education">
@@ -79,12 +77,16 @@ class Resume extends Component {
           </div>
           <div className="education-info">
             <div className="education-university">
-              <div className="resume-university">Fake University</div>
-              <div className="resume-major">Fake Major</div>
+              <div className="resume-university">{this.props.university}</div>
+              <div className="resume-major">{this.props.major}</div>
             </div>
             <div className="education-tenure">
-              <div className="resume-education-start-date">01/01/2010 |</div>
-              <div className="resume-education-end-date">05/01/2015</div>
+              <div className="resume-education-start-date">
+                {this.props.universityStart}
+              </div>
+              <div className="resume-education-end-date">
+                {this.props.UniversityEnd}
+              </div>
             </div>
           </div>
         </div>

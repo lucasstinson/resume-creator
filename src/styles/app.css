@@ -166,3 +166,9 @@ button:hover {
 .job-info {
   padding-bottom: 20px;
 }
+
+.button-container {
+  display: flex;
+  /* justify-content: center; */
+  gap: 20px;
+}

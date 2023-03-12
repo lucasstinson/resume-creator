@@ -117,20 +117,6 @@ class Resume extends Component {
             ></img>
             <h3 className="resume-work-experience-title">EDUCATION</h3>
           </div>
-          {/* <div className="education-info">
-            <div className="education-university">
-              <div className="resume-university">{this.props.university}</div>
-              <div className="resume-major">{this.props.major}</div>
-            </div>
-            <div className="education-tenure">
-              <div className="resume-education-start-date">
-                {this.props.universityStart}
-              </div>
-              <div className="resume-education-end-date">
-                {this.props.UniversityEnd}
-              </div>
-            </div>
-          </div> */}
           {schools}
         </div>
       </div>

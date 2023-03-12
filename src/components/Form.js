@@ -9,81 +9,189 @@ class Form extends Component {
   render() {
     let experiences = [];
     let education = [];
-    for (
-      let i = 0;
-      i < this.props.experienceCount;
-      i++ // eslint-disable-next-line no-lone-blocks
-    ) {
-      experiences.push(
-        <div className="work-experience" key={i} data-count={i}>
-          <input
-            type="text"
-            id="company"
-            placeholder="Company"
-            onChange={this.props.onExperienceChange}
-          />
-          <input
-            type="text"
-            id="position"
-            placeholder="Position"
-            onChange={this.props.onExperienceChange}
-          />
-          <input
-            type="text"
-            id="job-start-date"
-            placeholder="Start Date"
-            onChange={this.props.onExperienceChange}
-          />
-          <input
-            type="text"
-            id="job-end-date"
-            placeholder="End Date"
-            onChange={this.props.onExperienceChange}
-          />
-          <textarea
-            rows={4}
-            cols={30}
-            maxLength={1000}
-            id="description"
-            placeholder="Description"
-            onChange={this.props.onExperienceChange}
-          />
-        </div>
-      );
+    if (this.props.experienceCount > 1) {
+      for (
+        let i = 0;
+        i < this.props.experienceCount;
+        i++ // eslint-disable-next-line no-lone-blocks
+      ) {
+        experiences.push(
+          <div className="work-experience" key={i} data-count={i}>
+            <input
+              type="text"
+              id="company"
+              placeholder="Company"
+              onChange={this.props.onExperienceChange}
+            />
+            <input
+              type="text"
+              id="position"
+              placeholder="Position"
+              onChange={this.props.onExperienceChange}
+            />
+            <input
+              type="text"
+              id="job-start-date"
+              placeholder="Start Date"
+              onChange={this.props.onExperienceChange}
+            />
+            <input
+              type="text"
+              id="job-end-date"
+              placeholder="End Date"
+              onChange={this.props.onExperienceChange}
+            />
+            <textarea
+              rows={4}
+              cols={30}
+              maxLength={1000}
+              id="description"
+              placeholder="Description"
+              onChange={this.props.onExperienceChange}
+            />
+            <div className="button-container">
+              <button className="add" onClick={this.props.onAddExp}>
+                Add
+              </button>
+              <button className="delete" onClick={this.props.onDeleteExp}>
+                Delete
+              </button>
+            </div>
+          </div>
+        );
+      }
+    } else if (this.props.experienceCount <= 1) {
+      for (
+        let i = 0;
+        i < this.props.experienceCount;
+        i++ // eslint-disable-next-line no-lone-blocks
+      ) {
+        experiences.push(
+          <div className="work-experience" key={i} data-count={i}>
+            <input
+              type="text"
+              id="company"
+              placeholder="Company"
+              onChange={this.props.onExperienceChange}
+            />
+            <input
+              type="text"
+              id="position"
+              placeholder="Position"
+              onChange={this.props.onExperienceChange}
+            />
+            <input
+              type="text"
+              id="job-start-date"
+              placeholder="Start Date"
+              onChange={this.props.onExperienceChange}
+            />
+            <input
+              type="text"
+              id="job-end-date"
+              placeholder="End Date"
+              onChange={this.props.onExperienceChange}
+            />
+            <textarea
+              rows={4}
+              cols={30}
+              maxLength={1000}
+              id="description"
+              placeholder="Description"
+              onChange={this.props.onExperienceChange}
+            />
+            <div className="button-container">
+              <button className="add" onClick={this.props.onAddExp}>
+                Add
+              </button>
+            </div>
+          </div>
+        );
+      }
     }
-    for (
-      let i = 0;
-      i < this.props.educationCount;
-      i++ // eslint-disable-next-line no-lone-blocks
-    ) {
-      education.push(
-        <div className="education-experience" key={i} data-count={i}>
-          <input
-            type="text"
-            id="university"
-            placeholder="University"
-            onChange={this.props.onEducationChange}
-          />
-          <input
-            type="text"
-            id="major"
-            placeholder="Major"
-            onChange={this.props.onEducationChange}
-          />
-          <input
-            type="text"
-            id="uni-start-date"
-            placeholder="Start Date"
-            onChange={this.props.onEducationChange}
-          />
-          <input
-            type="text"
-            id="uni-end-date"
-            placeholder="End Date"
-            onChange={this.props.onEducationChange}
-          />
-        </div>
-      );
+    if (this.props.educationCount > 1) {
+      for (
+        let i = 0;
+        i < this.props.educationCount;
+        i++ // eslint-disable-next-line no-lone-blocks
+      ) {
+        education.push(
+          <div className="education-experience" key={i} data-count={i}>
+            <input
+              type="text"
+              id="university"
+              placeholder="University"
+              onChange={this.props.onEducationChange}
+            />
+            <input
+              type="text"
+              id="major"
+              placeholder="Major"
+              onChange={this.props.onEducationChange}
+            />
+            <input
+              type="text"
+              id="uni-start-date"
+              placeholder="Start Date"
+              onChange={this.props.onEducationChange}
+            />
+            <input
+              type="text"
+              id="uni-end-date"
+              placeholder="End Date"
+              onChange={this.props.onEducationChange}
+            />
+            <div className="button-container">
+              <button className="add" onClick={this.props.onAddEdu}>
+                Add
+              </button>
+              <button className="delete" onClick={this.props.onDeleteEdu}>
+                Delete
+              </button>
+            </div>
+          </div>
+        );
+      }
+    } else if (this.props.educationCount <= 1) {
+      for (
+        let i = 0;
+        i < this.props.educationCount;
+        i++ // eslint-disable-next-line no-lone-blocks
+      ) {
+        education.push(
+          <div className="education-experience" key={i} data-count={i}>
+            <input
+              type="text"
+              id="university"
+              placeholder="University"
+              onChange={this.props.onEducationChange}
+            />
+            <input
+              type="text"
+              id="major"
+              placeholder="Major"
+              onChange={this.props.onEducationChange}
+            />
+            <input
+              type="text"
+              id="uni-start-date"
+              placeholder="Start Date"
+              onChange={this.props.onEducationChange}
+            />
+            <input
+              type="text"
+              id="uni-end-date"
+              placeholder="End Date"
+              onChange={this.props.onEducationChange}
+            />
+            <div className="button-container">
+              <button className="add" onClick={this.props.onAddEdu}>
+                Add
+              </button>
+            </div>
+          </div>
+        );
+      }
     }
     return (
       <form onSubmit={this.props.handleSubmit}>
@@ -123,26 +231,11 @@ class Form extends Component {
         <div className="experience-container">
           <h2 className="work-experience-title">Work Experience</h2>
           {experiences}
-          <div className="button-container">
-            <button className="add" onClick={this.props.onClickExp}>
-              Add
-            </button>
-          </div>
         </div>
         <div className="education-container">
           <h2 className="education-title">Education</h2>
           {education}
-          <div className="button-container">
-            <button className="add" onClick={this.props.onClickEdu}>
-              Add
-            </button>
-          </div>
         </div>
-        {/* <div className="create-container">
-          <button className="create-button" type="submit">
-            Create
-          </button>
-        </div> */}
       </form>
     );
   }

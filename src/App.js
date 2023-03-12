@@ -51,18 +51,6 @@ class App extends Component {
     });
   };
 
-  // handlePersonalChange = (e) => {
-  //   const personalInfo = e.target.parentNode;
-  //   let personalCopy = Object.assign({}, this.state.personal);
-  //   const key = e.target.id;
-  //   const value = e.target.value;
-  //   personalCopy.{key} = { value };
-  // this.setState({
-  //   personalCopy},
-  // });
-  //   console.log(personalCopy.key);
-  // };
-
   handleExperienceChange = (e) => {
     const workContainer = e.target.parentNode.parentNode;
 
@@ -82,7 +70,6 @@ class App extends Component {
     this.setState({
       jobs: allExperience,
     });
-    console.log(this.state);
   };
 
   handleEducationChange = (e) => {
@@ -138,7 +125,6 @@ class App extends Component {
     this.setState({
       jobs: this.state.jobs.concat(job),
     });
-    console.log(this.state);
   };
 
   addEducation = (e) => {
@@ -152,7 +138,6 @@ class App extends Component {
     this.setState({
       schools: this.state.schools.concat(school),
     });
-    console.log(this.state);
   };
 
   render() {
@@ -171,20 +156,15 @@ class App extends Component {
             onClickEdu={this.addEducation}
           />
           <Resume
-          // name={this.state.form.name}
-          // email={this.state.form.email}
-          // phone={this.state.form.phone}
-          // location={this.state.form.location}
-          // github={this.state.form.github}
-          // company={this.state.form.work.job0.company}
-          // position={this.state.form.work.job0.position}
-          // positionStart={this.state.form.work.job0.positionStart}
-          // positionEnd={this.state.form.work.job0.positionEnd}
-          // description={this.state.form.work.job0.description}
-          // university={this.state.form.school.school0.university}
-          // major={this.state.form.school.school0.major}
-          // universityStart={this.state.form.school.school0.universityStart}
-          // UniversityEnd={this.state.form.school.school0.UniversityEnd}
+            experienceCount={this.state.jobs.length}
+            educationCount={this.state.schools.length}
+            name={this.state.personal.name}
+            email={this.state.personal.email}
+            phone={this.state.personal.phone}
+            location={this.state.personal.location}
+            github={this.state.personal.github}
+            jobs={this.state.jobs}
+            schools={this.state.schools}
           />
         </div>
       </div>

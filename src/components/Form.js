@@ -43,7 +43,7 @@ class Form extends Component {
           <textarea
             rows={4}
             cols={30}
-            maxLength={300}
+            maxLength={1000}
             id="description"
             placeholder="Description"
             onChange={this.props.onExperienceChange}
@@ -138,11 +138,11 @@ class Form extends Component {
             </button>
           </div>
         </div>
-        <div className="create-container">
+        {/* <div className="create-container">
           <button className="create-button" type="submit">
             Create
           </button>
-        </div>
+        </div> */}
       </form>
     );
   }

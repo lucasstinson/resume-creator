@@ -12,6 +12,64 @@ class Resume extends Component {
   }
 
   render() {
+    let experiences = [];
+    let schools = [];
+
+    for (
+      let i = 0;
+      i < this.props.experienceCount;
+      i++ // eslint-disable-next-line no-lone-blocks
+    ) {
+      experiences.push(
+        <div className="job-info" key={i} data-count={i}>
+          <div className="job-history">
+            <div className="job">
+              <div className="resume-company">{this.props.jobs[i].company}</div>
+              <div className="resume-position">
+                {this.props.jobs[i].position}
+              </div>
+            </div>
+            <div className="job-tenure">
+              <div className="resume-work-start-date">
+                {this.props.jobs[i].positionStart}
+              </div>
+              <div className="resume-work-end-date">
+                {this.props.jobs[i].positionEnd}
+              </div>
+            </div>
+          </div>
+          <div className="job-description">
+            {this.props.jobs[i].description}
+          </div>
+        </div>
+      );
+    }
+
+    for (
+      let i = 0;
+      i < this.props.educationCount;
+      i++ // eslint-disable-next-line no-lone-blocks
+    ) {
+      schools.push(
+        <div className="education-info" key={i} data-count={i}>
+          <div className="education-university">
+            <div className="resume-university">
+              {this.props.schools[i].university}
+            </div>
+            <div className="resume-major">{this.props.schools[i].major}</div>
+          </div>
+          <div className="education-tenure">
+            <div className="resume-education-start-date">
+              {this.props.schools[i].universityStart}
+            </div>
+            <div className="resume-education-end-date">
+              {this.props.schools[i].UniversityEnd}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="resume-preview">
         <div className="resume-personal-info">
@@ -48,23 +106,7 @@ class Resume extends Component {
             ></img>
             <h3 className="resume-work-experience-title">WORK EXPERIENCE</h3>
           </div>
-          <div className="job-info">
-            <div className="job-history">
-              <div className="job">
-                <div className="resume-company">{this.props.company}</div>
-                <div className="resume-position">{this.props.position}</div>
-              </div>
-              <div className="job-tenure">
-                <div className="resume-work-start-date">
-                  {this.props.positionStart}
-                </div>
-                <div className="resume-work-end-date">
-                  {this.props.positionEnd}
-                </div>
-              </div>
-            </div>
-            <div className="job-description">{this.props.description}</div>
-          </div>
+          {experiences}
         </div>
         <div className="resume-education">
           <div className="education-header">
@@ -75,7 +117,7 @@ class Resume extends Component {
             ></img>
             <h3 className="resume-work-experience-title">EDUCATION</h3>
           </div>
-          <div className="education-info">
+          {/* <div className="education-info">
             <div className="education-university">
               <div className="resume-university">{this.props.university}</div>
               <div className="resume-major">{this.props.major}</div>
@@ -88,7 +130,8 @@ class Resume extends Component {
                 {this.props.UniversityEnd}
               </div>
             </div>
-          </div>
+          </div> */}
+          {schools}
         </div>
       </div>
     );

@@ -1,6 +1,6 @@
 # Resume Creator React App
 
-The Resume creator is my first application using React. This app has been created using constructor components only.
+The Resume creator is my first application using React. This app was first created to use class constructors, but now it has been refactored to use both hooks and class constructors.
 
 ## Project: CV Application
 

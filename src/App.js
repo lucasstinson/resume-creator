@@ -110,18 +110,14 @@ const App = () => {
     e.preventDefault();
     const workExperience = e.target.parentNode.parentNode.dataset.count;
     setExperience(experience.filter((value, index) => index != workExperience));
-    console.log(experience.filter((value, index) => index != workExperience));
+    // console.log(experience.filter((value, index) => index != workExperience));
   };
 
-  // deleteEducation = (e) => {
-  //   e.preventDefault();
-  //   const schoolExperience = e.target.parentNode.parentNode.dataset.count;
-  //   this.setState({
-  //     schools: this.state.schools.filter(
-  //       (value, index) => index != schoolExperience
-  //     ),
-  //   });
-  // };
+  const deleteEducation = (e) => {
+    e.preventDefault();
+    const schoolExperience = e.target.parentNode.parentNode.dataset.count;
+    setEducation(education.filter((value, index) => index != schoolExperience));
+  };
 
   return (
     <div className="container">
@@ -137,7 +133,7 @@ const App = () => {
           onAddEdu={addEducation}
           value={experience}
           onDeleteExp={deleteExperience}
-          // onDeleteEdu={deleteEducation}
+          onDeleteEdu={deleteEducation}
         />
         <Resume
           experienceCount={experience.length}

@@ -29,7 +29,7 @@ A **live preview** of the project is [here](https://lucasstinson.github.io/resum
 
 #### **Areas of Improvement:**
 
-- There is an issue with how the states are being set upon the deletion. While the delete works, it is best to delete from the bottom (work experience that occured the longest ago) until this is updated.
+- ~~There is an issue with how the states are being set upon the deletion. This causes the displayed Resume to be different from the input on the form.While the delete works, it is best to delete from the bottom (work experience that occured the longest ago) until this is updated.~~ This issue was a result of how the form rendered the values in the input boxes and has been corrected with refactoring.
 - There should be an ability to download the user's resume into a PDF.
 - The Resume app rather basic. There could be more customization such as styling the font, adjusting font size, and adding colors among others.
 

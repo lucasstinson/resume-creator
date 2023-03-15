@@ -110,7 +110,6 @@ const App = () => {
     e.preventDefault();
     const workExperience = e.target.parentNode.parentNode.dataset.count;
     setExperience(experience.filter((value, index) => index != workExperience));
-    // console.log(experience.filter((value, index) => index != workExperience));
   };
 
   const deleteEducation = (e) => {
@@ -124,41 +123,24 @@ const App = () => {
       <Head />
       <div id="resume-container">
         <Form
-          experienceCount={experience.length}
-          educationCount={education.length}
           onPersonalChange={handlePersonalChange}
           onExperienceChange={handleExperienceChange}
           onEducationChange={handleEducationChange}
           onAddExp={addExperience}
           onAddEdu={addEducation}
-          value={experience}
+          experience={experience}
+          education={education}
           onDeleteExp={deleteExperience}
           onDeleteEdu={deleteEducation}
         />
         <Resume
-          experienceCount={experience.length}
-          educationCount={education.length}
-          name={personal.name}
-          email={personal.email}
-          phone={personal.phone}
-          location={personal.location}
-          github={personal.github}
-          jobs={experience}
-          schools={education}
+          personal={personal}
+          experience={experience}
+          education={education}
         />
       </div>
     </div>
   );
 };
 
-// this.handlePersonalChange = this.handlePersonalChange.bind(this);
-// this.handleExperienceChange = this.handleExperienceChange.bind(this);
-// this.handleEducationChange = this.handleEducationChange.bind(this);
-// this.addEducation = this.addEducation.bind(this);
-// this.addExperience = this.addExperience.bind(this);
-// this.deleteExperience = this.deleteExperience.bind(this);
-// this.deleteEducation = this.deleteEducation.bind(this);
-// }
-
-// }
 export default App;

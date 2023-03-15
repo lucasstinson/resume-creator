@@ -11,55 +11,49 @@ class Resume extends Component {
     let experiences = [];
     let schools = [];
 
-    for (
-      let i = 0;
-      i < this.props.experienceCount;
-      i++ // eslint-disable-next-line no-lone-blocks
-    ) {
+    for (let i = 0; i < this.props.experience.length; i++) {
       experiences.push(
         <div className="job-info" key={i} data-count={i}>
           <div className="job-history">
             <div className="job">
-              <div className="resume-company">{this.props.jobs[i].company}</div>
+              <div className="resume-company">
+                {this.props.experience[i].company}
+              </div>
               <div className="resume-position">
-                {this.props.jobs[i].position}
+                {this.props.experience[i].position}
               </div>
             </div>
             <div className="job-tenure">
               <div className="resume-work-start-date">
-                {this.props.jobs[i].positionStart}
+                {this.props.experience[i].positionStart}
               </div>
               <div className="resume-work-end-date">
-                {this.props.jobs[i].positionEnd}
+                {this.props.experience[i].positionEnd}
               </div>
             </div>
           </div>
           <div className="job-description">
-            {this.props.jobs[i].description}
+            {this.props.experience[i].description}
           </div>
         </div>
       );
     }
 
-    for (
-      let i = 0;
-      i < this.props.educationCount;
-      i++ // eslint-disable-next-line no-lone-blocks
-    ) {
+    for (let i = 0; i < this.props.education.length; i++) {
       schools.push(
         <div className="education-info" key={i} data-count={i}>
           <div className="education-university">
             <div className="resume-university">
-              {this.props.schools[i].university}
+              {this.props.education[i].university}
             </div>
-            <div className="resume-major">{this.props.schools[i].major}</div>
+            <div className="resume-major">{this.props.education[i].major}</div>
           </div>
           <div className="education-tenure">
             <div className="resume-education-start-date">
-              {this.props.schools[i].universityStart}
+              {this.props.education[i].universityStart}
             </div>
             <div className="resume-education-end-date">
-              {this.props.schools[i].UniversityEnd}
+              {this.props.education[i].UniversityEnd}
             </div>
           </div>
         </div>
@@ -69,15 +63,15 @@ class Resume extends Component {
     return (
       <div className="resume-preview">
         <div className="resume-personal-info">
-          <h2 className="resume-name">{this.props.name}</h2>
+          <h2 className="resume-name">{this.props.personal.name}</h2>
           <div className="contact-info">
             <div className="phone-container" src={phone}>
               <img className="phone-image" src={phone} alt="phone"></img>
-              <div className="resume-phone">{this.props.phone}</div>
+              <div className="resume-phone">{this.props.personal.phone}</div>
             </div>
             <div className="email-container">
               <img className="email-image" src={email} alt="email"></img>
-              <div className="resume-email">{this.props.email}</div>
+              <div className="resume-email">{this.props.personal.email}</div>
             </div>
             <div className="location-container">
               <img
@@ -85,11 +79,13 @@ class Resume extends Component {
                 src={location}
                 alt="location"
               ></img>
-              <div className="resume-location">{this.props.location}</div>
+              <div className="resume-location">
+                {this.props.personal.location}
+              </div>
             </div>
             <div className="github-container">
               <img className="github-image" src={github} alt="github"></img>
-              <div className="resume-github">{this.props.github}</div>
+              <div className="resume-github">{this.props.personal.github}</div>
             </div>
           </div>
         </div>

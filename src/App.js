@@ -1,58 +1,49 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./styles/app.css";
 import Head from "./components/Header";
 import Form from "./components/Form";
 import Resume from "./components/Resume";
-import uniqid from "uniqid";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  const [personal, setPersonal] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    location: "",
+    github: "",
+  });
 
-    this.state = {
-      personal: { name: "", phone: "", email: "", location: "", github: "" },
-      jobs: [
-        {
-          company: "",
-          position: "",
-          positionStart: "",
-          positionEnd: "",
-          description: "",
-        },
-      ],
-      schools: [
-        {
-          university: "",
-          major: "",
-          universityStart: "",
-          UniversityEnd: "",
-        },
-      ],
-    };
+  const [experience, setExperience] = useState([
+    {
+      company: "",
+      position: "",
+      positionStart: "",
+      positionEnd: "",
+      description: "",
+    },
+  ]);
 
-    this.handlePersonalChange = this.handlePersonalChange.bind(this);
-    this.handleExperienceChange = this.handleExperienceChange.bind(this);
-    this.handleEducationChange = this.handleEducationChange.bind(this);
-    this.addEducation = this.addEducation.bind(this);
-    this.addExperience = this.addExperience.bind(this);
-    this.deleteExperience = this.deleteExperience.bind(this);
-    this.deleteEducation = this.deleteEducation.bind(this);
-  }
+  const [education, setEducation] = useState([
+    {
+      university: "",
+      major: "",
+      universityStart: "",
+      UniversityEnd: "",
+    },
+  ]);
 
-  handlePersonalChange = (e) => {
+  const handlePersonalChange = (e) => {
     const personalInfo = e.target.parentNode;
-    this.setState({
-      personal: {
-        name: personalInfo.children[1].value,
-        phone: personalInfo.children[2].value,
-        email: personalInfo.children[3].value,
-        location: personalInfo.children[4].value,
-        github: personalInfo.children[5].value,
-      },
+    setPersonal({
+      name: personalInfo.children[1].value,
+      phone: personalInfo.children[2].value,
+      email: personalInfo.children[3].value,
+      location: personalInfo.children[4].value,
+      github: personalInfo.children[5].value,
     });
   };
 
-  handleExperienceChange = (e) => {
+  const handleExperienceChange = (e) => {
     const workContainer = e.target.parentNode.parentNode;
 
     let allExperience = [];
@@ -66,14 +57,12 @@ class App extends Component {
         positionEnd: workExperience.children[3].value,
         description: workExperience.children[4].value,
       };
-      allExperience.push(job);
+      allExperience = [...allExperience, job];
     }
-    this.setState({
-      jobs: allExperience,
-    });
+    setExperience(allExperience);
   };
 
-  handleEducationChange = (e) => {
+  const handleEducationChange = (e) => {
     const educationContainer = e.target.parentNode.parentNode;
 
     let allEducation = [];
@@ -86,16 +75,15 @@ class App extends Component {
         universityStart: educationExperience.children[2].value,
         UniversityEnd: educationExperience.children[3].value,
       };
-      allEducation.push(school);
+      allEducation = [...allEducation, school];
     }
 
-    this.setState({
-      schools: allEducation,
-    });
+    setEducation(allEducation);
   };
 
-  addExperience = (e) => {
+  const addExperience = (e) => {
     e.preventDefault();
+    let jobs = experience;
     let job = {
       company: "",
       position: "",
@@ -103,72 +91,78 @@ class App extends Component {
       positionEnd: "",
       description: "",
     };
-    this.setState({
-      jobs: this.state.jobs.concat(job),
-    });
+    setExperience([...jobs, job]);
   };
 
-  addEducation = (e) => {
+  const addEducation = (e) => {
     e.preventDefault();
+    let schools = education;
     let school = {
       university: "",
       major: "",
       universityStart: "",
       UniversityEnd: "",
     };
-    this.setState({
-      schools: this.state.schools.concat(school),
-    });
+    setEducation([...schools, school]);
   };
 
-  deleteExperience = (e) => {
+  const deleteExperience = (e) => {
     e.preventDefault();
     const workExperience = e.target.parentNode.parentNode.dataset.count;
-    this.setState({
-      jobs: this.state.jobs.filter((value, index) => index != workExperience),
-    });
+    setExperience(experience.filter((value, index) => index != workExperience));
+    console.log(experience.filter((value, index) => index != workExperience));
   };
 
-  deleteEducation = (e) => {
-    e.preventDefault();
-    const schoolExperience = e.target.parentNode.parentNode.dataset.count;
-    this.setState({
-      schools: this.state.schools.filter(
-        (value, index) => index != schoolExperience
-      ),
-    });
-  };
+  // deleteEducation = (e) => {
+  //   e.preventDefault();
+  //   const schoolExperience = e.target.parentNode.parentNode.dataset.count;
+  //   this.setState({
+  //     schools: this.state.schools.filter(
+  //       (value, index) => index != schoolExperience
+  //     ),
+  //   });
+  // };
 
-  render() {
-    return (
-      <div className="container">
-        <Head />
-        <div id="resume-container">
-          <Form
-            experienceCount={this.state.jobs.length}
-            educationCount={this.state.schools.length}
-            onPersonalChange={this.handlePersonalChange}
-            onExperienceChange={this.handleExperienceChange}
-            onEducationChange={this.handleEducationChange}
-            onAddExp={this.addExperience}
-            onAddEdu={this.addEducation}
-            onDeleteExp={this.deleteExperience}
-            onDeleteEdu={this.deleteEducation}
-          />
-          <Resume
-            experienceCount={this.state.jobs.length}
-            educationCount={this.state.schools.length}
-            name={this.state.personal.name}
-            email={this.state.personal.email}
-            phone={this.state.personal.phone}
-            location={this.state.personal.location}
-            github={this.state.personal.github}
-            jobs={this.state.jobs}
-            schools={this.state.schools}
-          />
-        </div>
+  return (
+    <div className="container">
+      <Head />
+      <div id="resume-container">
+        <Form
+          experienceCount={experience.length}
+          educationCount={education.length}
+          onPersonalChange={handlePersonalChange}
+          onExperienceChange={handleExperienceChange}
+          onEducationChange={handleEducationChange}
+          onAddExp={addExperience}
+          onAddEdu={addEducation}
+          value={experience}
+          onDeleteExp={deleteExperience}
+          // onDeleteEdu={deleteEducation}
+        />
+        <Resume
+          experienceCount={experience.length}
+          educationCount={education.length}
+          name={personal.name}
+          email={personal.email}
+          phone={personal.phone}
+          location={personal.location}
+          github={personal.github}
+          jobs={experience}
+          schools={education}
+        />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+// this.handlePersonalChange = this.handlePersonalChange.bind(this);
+// this.handleExperienceChange = this.handleExperienceChange.bind(this);
+// this.handleEducationChange = this.handleEducationChange.bind(this);
+// this.addEducation = this.addEducation.bind(this);
+// this.addExperience = this.addExperience.bind(this);
+// this.deleteExperience = this.deleteExperience.bind(this);
+// this.deleteEducation = this.deleteEducation.bind(this);
+// }
+
+// }
 export default App;

@@ -7,10 +7,6 @@ import briefcase from "../images/briefcase.svg";
 import education from "../images/school.svg";
 
 class Resume extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let experiences = [];
     let schools = [];

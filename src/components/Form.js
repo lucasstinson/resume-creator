@@ -1,11 +1,6 @@
 import React, { Component } from "react";
-import uniqid from "uniqid";
 
 class Form extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let experiences = [];
     let education = [];
@@ -194,7 +189,7 @@ class Form extends Component {
       }
     }
     return (
-      <form onSubmit={this.props.handleSubmit}>
+      <form>
         <div className="personal-container">
           <h2 className="personal-information-title">Personal Information</h2>
           <input
@@ -202,6 +197,7 @@ class Form extends Component {
             id="name"
             placeholder="Name"
             onChange={this.props.onPersonalChange}
+            value={this.props.value.name}
           />
           <input
             type="tel"

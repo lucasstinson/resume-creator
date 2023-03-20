@@ -4,192 +4,132 @@ class Form extends Component {
   render() {
     let experiences = [];
     let education = [];
-    if (this.props.experience.length > 1) {
-      for (let i = 0; i < this.props.experience.length; i++) {
-        experiences.push(
-          <div className="work-experience" key={i} data-count={i}>
-            <input
-              type="text"
-              id="company"
-              placeholder="Company"
-              onChange={this.props.onExperienceChange}
-              value={this.props.experience[i].company}
-            />
-            <input
-              type="text"
-              id="position"
-              placeholder="Position"
-              onChange={this.props.onExperienceChange}
-              value={this.props.experience[i].position}
-            />
-            <input
-              type="text"
-              id="job-start-date"
-              placeholder="Start Date"
-              onChange={this.props.onExperienceChange}
-              value={this.props.experience[i].positionStart}
-            />
-            <input
-              type="text"
-              id="job-end-date"
-              placeholder="End Date"
-              onChange={this.props.onExperienceChange}
-              value={this.props.experience[i].positionEnd}
-            />
-            <textarea
-              rows={4}
-              cols={30}
-              maxLength={1000}
-              id="description"
-              placeholder="Description"
-              onChange={this.props.onExperienceChange}
-              value={this.props.experience[i].description}
-            />
-            <div className="button-container">
-              <button className="add" onClick={this.props.onAddExp}>
-                Add
-              </button>
-              <button className="delete" onClick={this.props.onDeleteExp}>
-                Delete
-              </button>
-            </div>
+
+    for (let i = 0; i < this.props.experience.length; i++) {
+      let expButtons = [];
+      if (this.props.experience.length > 1) {
+        expButtons.push(
+          <div className="button-container">
+            <button className="add" onClick={this.props.onAddExp}>
+              Add
+            </button>
+            <button className="delete" onClick={this.props.onDeleteExp}>
+              Delete
+            </button>
+          </div>
+        );
+      } else if (this.props.experience.length <= 1) {
+        expButtons.push(
+          <div className="button-container">
+            <button className="add" onClick={this.props.onAddExp}>
+              Add
+            </button>
           </div>
         );
       }
-    } else if (this.props.experience.length <= 1) {
-      for (let i = 0; i < this.props.experience.length; i++) {
-        experiences.push(
-          <div className="work-experience" key={i} data-count={i}>
-            <input
-              type="text"
-              id="company"
-              placeholder="Company"
-              onChange={this.props.onExperienceChange}
-              value={this.props.experience[i].company}
-            />
-            <input
-              type="text"
-              id="position"
-              placeholder="Position"
-              onChange={this.props.onExperienceChange}
-              value={this.props.experience[i].position}
-            />
-            <input
-              type="text"
-              id="job-start-date"
-              placeholder="Start Date"
-              onChange={this.props.onExperienceChange}
-              value={this.props.experience[i].positionStart}
-            />
-            <input
-              type="text"
-              id="job-end-date"
-              placeholder="End Date"
-              onChange={this.props.onExperienceChange}
-              value={this.props.experience[i].positionEnd}
-            />
-            <textarea
-              rows={4}
-              cols={30}
-              maxLength={1000}
-              id="description"
-              placeholder="Description"
-              onChange={this.props.onExperienceChange}
-              value={this.props.experience[i].description}
-            />
-            <div className="button-container">
-              <button className="add" onClick={this.props.onAddExp}>
-                Add
-              </button>
-            </div>
-          </div>
-        );
-      }
+
+      experiences.push(
+        <div className="work-experience" key={i} data-count={i}>
+          <input
+            type="text"
+            id="company"
+            placeholder="Company"
+            onChange={this.props.onExperienceChange}
+            value={this.props.experience[i].company}
+          />
+          <input
+            type="text"
+            id="position"
+            placeholder="Position"
+            onChange={this.props.onExperienceChange}
+            value={this.props.experience[i].position}
+          />
+          <input
+            type="text"
+            id="job-start-date"
+            placeholder="Start Date"
+            onChange={this.props.onExperienceChange}
+            value={this.props.experience[i].positionStart}
+          />
+          <input
+            type="text"
+            id="job-end-date"
+            placeholder="End Date"
+            onChange={this.props.onExperienceChange}
+            value={this.props.experience[i].positionEnd}
+          />
+          <textarea
+            rows={4}
+            cols={30}
+            maxLength={1000}
+            id="description"
+            placeholder="Description"
+            onChange={this.props.onExperienceChange}
+            value={this.props.experience[i].description}
+          />
+
+          {expButtons}
+        </div>
+      );
     }
-    if (this.props.education.length > 1) {
-      for (let i = 0; i < this.props.education.length; i++) {
-        education.push(
-          <div className="education-experience" key={i} data-count={i}>
-            <input
-              type="text"
-              id="university"
-              placeholder="University"
-              onChange={this.props.onEducationChange}
-              value={this.props.education[i].university}
-            />
-            <input
-              type="text"
-              id="major"
-              placeholder="Major"
-              onChange={this.props.onEducationChange}
-              value={this.props.education[i].major}
-            />
-            <input
-              type="text"
-              id="uni-start-date"
-              placeholder="Start Date"
-              onChange={this.props.onEducationChange}
-              value={this.props.education[i].universityStart}
-            />
-            <input
-              type="text"
-              id="uni-end-date"
-              placeholder="End Date"
-              onChange={this.props.onEducationChange}
-              value={this.props.education[i].universityEnd}
-            />
-            <div className="button-container">
-              <button className="add" onClick={this.props.onAddEdu}>
-                Add
-              </button>
-              <button className="delete" onClick={this.props.onDeleteEdu}>
-                Delete
-              </button>
-            </div>
+    for (let i = 0; i < this.props.education.length; i++) {
+      let eduButtons = [];
+      if (this.props.education.length > 1) {
+        eduButtons.push(
+          <div className="button-container">
+            <button className="add" onClick={this.props.onAddEdu}>
+              Add
+            </button>
+            <button className="delete" onClick={this.props.onDeleteEdu}>
+              Delete
+            </button>
+          </div>
+        );
+      } else if (this.props.education.length <= 1) {
+        eduButtons.push(
+          <div className="button-container">
+            <button className="add" onClick={this.props.onAddEdu}>
+              Add
+            </button>
           </div>
         );
       }
-    } else if (this.props.education.length <= 1) {
-      for (let i = 0; i < this.props.education.length; i++) {
-        education.push(
-          <div className="education-experience" key={i} data-count={i}>
-            <input
-              type="text"
-              id="university"
-              placeholder="University"
-              onChange={this.props.onEducationChange}
-              value={this.props.education[i].university}
-            />
-            <input
-              type="text"
-              id="major"
-              placeholder="Major"
-              onChange={this.props.onEducationChange}
-              value={this.props.education[i].major}
-            />
-            <input
-              type="text"
-              id="uni-start-date"
-              placeholder="Start Date"
-              onChange={this.props.onEducationChange}
-              value={this.props.education[i].universityStart}
-            />
-            <input
-              type="text"
-              id="uni-end-date"
-              placeholder="End Date"
-              onChange={this.props.onEducationChange}
-              value={this.props.education[i].universityEnd}
-            />
-            <div className="button-container">
-              <button className="add" onClick={this.props.onAddEdu}>
-                Add
-              </button>
-            </div>
-          </div>
-        );
-      }
+      education.push(
+        <div className="education-experience" key={i} data-count={i}>
+          <input
+            type="text"
+            id="university"
+            placeholder="University"
+            onChange={this.props.onEducationChange}
+            value={this.props.education[i].university}
+          />
+          <input
+            type="text"
+            id="major"
+            placeholder="Major"
+            onChange={this.props.onEducationChange}
+            value={this.props.education[i].major}
+          />
+          <input
+            type="text"
+            id="uni-start-date"
+            placeholder="Start Date"
+            onChange={this.props.onEducationChange}
+            value={this.props.education[i].universityStart}
+          />
+          <input
+            type="text"
+            id="uni-end-date"
+            placeholder="End Date"
+            onChange={this.props.onEducationChange}
+            value={this.props.education[i].universityEnd}
+          />
+
+          {eduButtons}
+        </div>
+      );
     }
+
     return (
       <form>
         <div className="personal-container">

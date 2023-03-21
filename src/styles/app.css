@@ -172,3 +172,8 @@ button:hover {
   /* justify-content: center; */
   gap: 20px;
 }
+
+.pdf-print {
+  display: flex;
+  justify-content: center;
+}

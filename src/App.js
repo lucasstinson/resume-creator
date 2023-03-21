@@ -3,6 +3,8 @@ import "./styles/app.css";
 import Head from "./components/Header";
 import Form from "./components/Form";
 import Resume from "./components/Resume";
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 
 const App = () => {
   const [personal, setPersonal] = useState({
@@ -118,9 +120,32 @@ const App = () => {
     setEducation(education.filter((value, index) => index != schoolExperience));
   };
 
+  const downloadResume = async () => {
+    const resume = document.querySelector(".resume-preview");
+
+    const canvas = await html2canvas(resume, {
+      onclone: (clonedDoc) => {
+        clonedDoc.querySelector(".resume-preview").style.cssText =
+          "height: 11in; width: 8.5in; padding: 1in;";
+      },
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF({
+      orientation: "portrait",
+      format: "letter",
+    });
+
+    const imgProps = pdf.getImageProperties(imgData);
+    const imgWidth = pdf.internal.pageSize.getWidth();
+    const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
+    pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+    pdf.save("download.pdf");
+  };
+
   return (
     <div className="container">
-      <Head />
+      <Head onDownload={downloadResume} />
       <div id="resume-container">
         <Form
           onPersonalChange={handlePersonalChange}

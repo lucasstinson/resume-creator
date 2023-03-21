@@ -9,7 +9,7 @@ class Form extends Component {
       let expButtons = [];
       if (this.props.experience.length > 1) {
         expButtons.push(
-          <div className="button-container">
+          <div className="button-container" key={i}>
             <button className="add" onClick={this.props.onAddExp}>
               Add
             </button>
@@ -20,14 +20,13 @@ class Form extends Component {
         );
       } else if (this.props.experience.length <= 1) {
         expButtons.push(
-          <div className="button-container">
+          <div className="button-container" key={i}>
             <button className="add" onClick={this.props.onAddExp}>
               Add
             </button>
           </div>
         );
       }
-
       experiences.push(
         <div className="work-experience" key={i} data-count={i}>
           <input
@@ -67,7 +66,6 @@ class Form extends Component {
             onChange={this.props.onExperienceChange}
             value={this.props.experience[i].description}
           />
-
           {expButtons}
         </div>
       );
@@ -76,7 +74,7 @@ class Form extends Component {
       let eduButtons = [];
       if (this.props.education.length > 1) {
         eduButtons.push(
-          <div className="button-container">
+          <div className="button-container" key={i}>
             <button className="add" onClick={this.props.onAddEdu}>
               Add
             </button>
@@ -87,7 +85,7 @@ class Form extends Component {
         );
       } else if (this.props.education.length <= 1) {
         eduButtons.push(
-          <div className="button-container">
+          <div className="button-container" key={i}>
             <button className="add" onClick={this.props.onAddEdu}>
               Add
             </button>

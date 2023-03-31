@@ -6,17 +6,17 @@ The Resume creator is my first application using React. This app was first creat
 
 The project is from The Odin Project [curriculum](https://www.theodinproject.com/lessons/node-path-javascript-cv-application). Or see the Assignment Below.
 
-A **live preview** of the project is [here](https://lucasstinson.github.io/resume-creator/).
+A **live preview** of the project is [here](https://lucasstinson.github.io/memory-card-game/).
 
 ### Overview
 
 #### **Features:**
 
-- You add all identifying information such as name, phone number, email, location and github.
-- You can add and delete your work experience.
-- Your experience includes the company you work for, the title of your position, the date you started, the date you ended work there and a description about what the position entails.
-- You can add and delete your education.
-- Your education includes where you attended school, degree you received, the time you started school and when you finished.
+- A resume creator that takes all information such as name, phone number, email, location, github, work expereience and education.
+- You can add and delete additional work experience.
+- Your experience includes the company you work for, the title of your position, the date you started, the date you ended work and a description about the job position.
+- You can add and delete additional education.
+- Your education includes where you attended school, the degree you received, the time you started school and when you finished.
 
 #### **Tools:**
 

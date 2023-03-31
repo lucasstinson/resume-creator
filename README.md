@@ -17,6 +17,7 @@ A **live preview** of the project is [here](https://lucasstinson.github.io/memor
 - Your experience includes the company you work for, the title of your position, the date you started, the date you ended work and a description about the job position.
 - You can add and delete additional education.
 - Your education includes where you attended school, the degree you received, the time you started school and when you finished.
+- The user can download a copy of their resume.
 
 #### **Tools:**
 

@@ -6,7 +6,7 @@ The Resume creator is my first application using React. This app was first creat
 
 The project is from The Odin Project [curriculum](https://www.theodinproject.com/lessons/node-path-javascript-cv-application). Or see the Assignment Below.
 
-A **live preview** of the project is [here](https://lucasstinson.github.io/memory-card-game/).
+A **live preview** of the project is [here](https://lucasstinson.github.io/resume-creator/).
 
 ### Overview
 
